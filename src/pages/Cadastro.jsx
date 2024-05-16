@@ -47,8 +47,7 @@ function Cadastro(){
             JSON.stringify(create) 
 
             
-        }
-        
+        }       
         ref_clip_url.current.value=""
         ref_title.current.value=""
     }
@@ -105,6 +104,7 @@ function Cadastro(){
                             <option value="linkinpark">Linkin Park</option>
                             <option value="alanis">Alanis Morissette</option>
                             <option value="anos90">Anos 90</option>
+                            <option value="sertanejo">Sertanejo</option>
                             
                         </select>
                     </div>
@@ -130,6 +130,7 @@ function Cadastro(){
                         <option value="linkinpark">Linkin Park</option>
                         <option value="alanis">Alanis Morissette</option>
                         <option value="anos90">Anos90</option>
+                        <option value="sertanejo">Sertanejo</option>
                     </select>
                     {open && (
                         <h2 className="text-center text-white font-bold py-2 ">Nenhum titulo encontrado</h2>

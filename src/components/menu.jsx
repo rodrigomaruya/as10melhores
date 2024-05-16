@@ -21,6 +21,7 @@ function MenuHamburger({open}){
                 <h3 className='font-bold text-lg mb-3'>As melhores do ano</h3>
                 <ul>
                     <li className='pb-2'><Link to={'anos90'}>As melhores anos 90</Link></li>
+                    <li className='pb-2'><Link to={'sertanejo'}>As melhores do sertanejo</Link></li>
 
                 </ul>
             </div>

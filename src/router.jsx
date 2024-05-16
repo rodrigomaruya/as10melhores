@@ -4,6 +4,7 @@ import LinkinPark from './pages/LinkinPark'
 import Cadastro from './pages/Cadastro'
 import Alanis from './pages/Alanis'
 import Anos90 from './pages/Anos90'
+import Sertanejo from './pages/Sertanejo'
 
 function RoutesApp(){
     return(
@@ -13,6 +14,7 @@ function RoutesApp(){
                 <Route path='/linkinPark' element={<LinkinPark/>}> </Route>
                 <Route path='/alanis' element={<Alanis/>}> </Route>
                 <Route path='/anos90' element={<Anos90/>}> </Route>
+                <Route path='/sertanejo' element={<Sertanejo/>}> </Route>
                 <Route path='cadastro' element={<Cadastro/>}></Route>
             </Routes>
         

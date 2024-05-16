@@ -1,16 +1,16 @@
-import logoAlanis from '../image/1024px-Alanis_Morissette_Logo.png'
+import logo from '../image/sertanejo.png'
 import { IoArrowBackOutline } from "react-icons/io5";
 import {Link} from 'react-router-dom'
 import api from '../api';
 import { useEffect,useState } from 'react';
 
 
-export default function Alanis(){
+export default function Sertanejo(){
     const [get,setGet]=useState([])
    
     useEffect(()=>{
         const get=async()=>{
-            const response=await api.get('/alanis')
+            const response=await api.get('/sertanejo')
             console.log(response.data)
             setGet(response.data)
         }
@@ -29,8 +29,8 @@ export default function Alanis(){
                             <IoArrowBackOutline size={25} color='white'/><span className='text-white font-bold'>Home</span>
                         </Link>
                     </div>
-                    <div className='min-w-80 max-w-xl flex justify-center items-center mx-auto p-3'>
-                        <img src={logoAlanis} alt="logo" className='w-full max-h-64'/>
+                    <div className='min-w-80 max-w-xl flex justify-center items-center mx-auto p-3 '>
+                        <img src={logo} alt="logo" className='w-full max-h-64'/>
                     </div>    
                     <h1 className='text-slate-500 font-serif pb-10 text-center font-bold text-lg'>As 10 melhores </h1>
                 </header>

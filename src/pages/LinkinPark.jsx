@@ -34,7 +34,7 @@ export default function LinkinPark(){
                        
                     </div>
                     <div className='max-w-2xl flex justify-center items-center mx-auto'>
-                        <img src={image} alt="logo" className='w-full'/>
+                        <img src={image} alt="logo" className='w-full max-h-64'/>
                     </div>    
                     <h1 className='text-slate-500 font-serif pb-10 text-center font-bold text-lg'>As 10 melhores </h1>
                 </header>

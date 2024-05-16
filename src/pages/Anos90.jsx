@@ -30,7 +30,7 @@ export default function Anos90(){
                         </Link>
                     </div>
                     <div className='min-w-80 max-w-xl flex justify-center items-center mx-auto p-3'>
-                        <img src={Anos9} alt="logo" className='w-full'/>
+                        <img src={Anos9} alt="logo" className='w-full max-h-64'/>
                     </div>    
                     <h1 className='text-slate-500 font-serif pb-10 text-center font-bold text-lg'>As 10 melhores </h1>
                 </header>
