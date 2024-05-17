@@ -105,6 +105,8 @@ function Cadastro(){
                             <option value="alanis">Alanis Morissette</option>
                             <option value="anos90">Anos 90</option>
                             <option value="sertanejo">Sertanejo</option>
+                            <option value="nxzero">Nxzero</option>
+
                             
                         </select>
                     </div>
@@ -131,6 +133,7 @@ function Cadastro(){
                         <option value="alanis">Alanis Morissette</option>
                         <option value="anos90">Anos90</option>
                         <option value="sertanejo">Sertanejo</option>
+                        <option value="nxzero">Nxzero</option>
                     </select>
                     {open && (
                         <h2 className="text-center text-white font-bold py-2 ">Nenhum titulo encontrado</h2>
