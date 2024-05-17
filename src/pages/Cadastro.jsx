@@ -2,7 +2,6 @@ import api from "../api"
 import {useRef,useState,useEffect} from 'react'
 import { FaRegTrashAlt } from "react-icons/fa";
 
-
 function Cadastro(){
 
     const ref_title=useRef('')
@@ -50,12 +49,14 @@ function Cadastro(){
         }       
         ref_clip_url.current.value=""
         ref_title.current.value=""
+       
     }
 
-    const deletar=async(id)=>{
+    const deletar=async(valor,id)=>{
         console.log(id)
         try{
-            await api.delete(`/${id}`)
+            await api.delete(`/${valor}/${id}`)
+       
             const allClip=get.filter(get=>get._id!=id)  
             setGet(allClip)
         }catch(err){
@@ -94,6 +95,7 @@ function Cadastro(){
 
     return(
         <div className=" w-full min-h-screen flex justify-center items-start bg-cyan-800">
+            
             <div className="max-w-5xl w-full">
                 <section className=" w-full flex flex-col justify-center items-center">
                     <h1 className="p-3 text-white font-bold">Cadastro</h1>
@@ -141,7 +143,7 @@ function Cadastro(){
                     {get.map((get)=>(
                         <div className="flex justify-between items-center mt-5 p-3 " key={get._id}>
                             <h2 className="font-bold text-base text-white ">{get.title}</h2>
-                            <button onClick={()=>deletar(get._id)}><FaRegTrashAlt color="white" size={20} /></button>
+                            <button onClick={()=>deletar(valorDelete,get._id)}><FaRegTrashAlt color="white" size={20} /></button>
                         </div>
                     ))}
                   
