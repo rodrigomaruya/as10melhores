@@ -1,0 +1,17 @@
+.bg::before{
+    content: '';
+    display: block;
+    position: absolute;
+    background-image: linear-gradient(to bottom,rgba(6,18,30,0.1),#06121e),url("../../image/background.jpg");
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-size: cover;
+    background-position: 50% 0;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+}
+
+

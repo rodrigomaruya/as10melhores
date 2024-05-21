@@ -10,9 +10,13 @@ export default function Anos90(){
    
     useEffect(()=>{
         const get=async()=>{
-            const response=await api.get('/anos90')
-            console.log(response.data)
-            setGet(response.data)
+            try{
+                const response=await api.get('/anos90')
+                setGet(response.data)
+
+            }catch(error){
+                console.log(error)
+            }
         }
 
         get()
@@ -23,23 +27,23 @@ export default function Anos90(){
     return(
         <div className="w-full min-h-dvh bg-gray-800">
             
-                <header className="bg-gradient-to-b from-gray-700 to-gray-800 h-200 flex justify-center flex-col ">
-                    <div className='max-w-5xl flex mx-auto w-full mt-3 pt-1 pl-3'>
-                        <Link to={'/'} className='w-full'>
+                <header className="bg-gradient-to-b from-gray-700 to-gray-800 h-200 flex  flex-col ">
+                    <div className=' flex mx-auto w-full bg-gray-800 fixed'>
+                        <Link to={'/'} className='p-2 max-w-5xl w-full mx-auto'>
                             <IoArrowBackOutline size={25} color='white'/><span className='text-white font-bold'>Home</span>
                         </Link>
                     </div>
-                    <div className='min-w-80 max-w-xl flex justify-center items-center mx-auto p-3'>
-                        <img src={Anos9} alt="logo" className='w-full max-h-64'/>
+                    <div className='max-w-xl flex justify-center items-center m-auto mt-10'>
+                        <img src={Anos9} alt="logo" className='w-full '/>
                     </div>    
                     <h1 className='text-slate-500 font-serif pb-10 text-center font-bold text-lg'>As 10 melhores </h1>
                 </header>
             
             
-            <section className='flex flex-col md:grid md:grid-cols-2 md:gap-2 max-w-4xl mx-auto '>
+            <section className='flex flex-col md:grid md:grid-cols-2 md:gap-2  md:max-w-5xl mx-auto px-1'>
             {/*--------conteudo--------*/}
             {get.map((get)=>(
-                <div className='flex justify-center flex-col items-center px-1 bg-white mb-3 m-1 rounded-md' key={get._id}>
+                <div className='bg-white py-1 my-1 rounded-sm' key={get._id}>
                     <div className='w-full p-2'>
                         <iframe 
                         width="100%" 

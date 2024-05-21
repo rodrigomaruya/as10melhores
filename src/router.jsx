@@ -1,5 +1,5 @@
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
-import Home from './pages/Home'
+import Home from './pages/home/Home'
 import LinkinPark from './pages/LinkinPark'
 import Cadastro from './pages/Cadastro'
 import Alanis from './pages/Alanis'

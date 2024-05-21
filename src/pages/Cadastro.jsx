@@ -1,7 +1,8 @@
 import api from "../api"
 import {useRef,useState,useEffect} from 'react'
 import { FaRegTrashAlt } from "react-icons/fa";
-
+import { IoArrowBackOutline } from "react-icons/io5";
+import {Link} from 'react-router-dom'
 function Cadastro(){
 
     const ref_title=useRef('')
@@ -10,6 +11,7 @@ function Cadastro(){
     const [valorDelete,setValorDelete]=useState('vazio')
     const [get,setGet]=useState([])
     const [open,setOpen]=useState(false)
+    const refMenssage=useRef(null)
     
     function extrairIdDoYoutube(url) {
         let videoId = null;
@@ -43,9 +45,13 @@ function Cadastro(){
                 title:ref_title.current.value,
                 clip_url:extrairIdDoYoutube(ref_clip_url.current.value)
             })
-            JSON.stringify(create) 
-
+           
+            if(valor==valorDelete){
+                setGet(allget=>[...allget,create.data])
+                console.log('ok')
+            }
             
+           
         }       
         ref_clip_url.current.value=""
         ref_title.current.value=""
@@ -73,22 +79,28 @@ function Cadastro(){
                 setGet([])
             }else if(valorDelete != 'vazio'){
                 setOpen(false)
+
                 try{
                     const response=await api.get(`/${valorDelete}`)
                     console.log(response.data)
                     setGet(response.data)
 
                 }catch(error){
-                    console.log(error)
+                    console.log({error:'erro'})
                 }
             }
         }
-    
-
         get()
+        
+
        
     },[valorDelete,open])
 
+    useEffect(()=>{
+        if(refMenssage.current){
+           refMenssage.current.scrollIntoView({ behavior: 'smooth' })
+        }
+    },[get])
 
 
 
@@ -98,6 +110,9 @@ function Cadastro(){
             
             <div className="max-w-5xl w-full">
                 <section className=" w-full flex flex-col justify-center items-center">
+                <Link to={'/'} className='w-full pt-3 pl-3'>
+                            <IoArrowBackOutline size={25} color='white'/><span className='text-white font-bold'>Home</span>
+                        </Link>
                     <h1 className="p-3 text-white font-bold">Cadastro</h1>
                     <div className="w-full flex justify-center p-3">
                         <select name="linkinpark" id="option" className="border w-80" onChange={(e)=>setValor(e.target.value)}>
@@ -127,7 +142,7 @@ function Cadastro(){
                     </div>
                 </section>
                 {/*=============*/ }
-                <section className="flex flex-col  w-full">
+                <section className="flex flex-col  w-full" ref={refMenssage}>
                     <h2 className="text-center py-3 text-white">Selecione uma lista para deletar</h2>
                     <select value={valorDelete} id="option" className="border w-80 m-auto" onChange={(e)=>setValorDelete(e.target.value)}>
                         <option value='vazio'>Escolha o album</option>
@@ -141,7 +156,7 @@ function Cadastro(){
                         <h2 className="text-center text-white font-bold py-2 ">Nenhum titulo encontrado</h2>
                     )}
                     {get.map((get)=>(
-                        <div className="flex justify-between items-center mt-5 p-3 " key={get._id}>
+                        <div className="flex justify-between items-center mt-5 p-3 " key={get._id} >
                             <h2 className="font-bold text-base text-white ">{get.title}</h2>
                             <button onClick={()=>deletar(valorDelete,get._id)}><FaRegTrashAlt color="white" size={20} /></button>
                         </div>

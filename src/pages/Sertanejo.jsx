@@ -10,9 +10,13 @@ export default function Sertanejo(){
    
     useEffect(()=>{
         const get=async()=>{
-            const response=await api.get('/sertanejo')
-            console.log(response.data)
-            setGet(response.data)
+            try{
+                const response=await api.get('/sertanejo')
+                setGet(response.data)
+
+            }catch(error){
+                console.log(error)
+            }
         }
 
         get()
@@ -23,20 +27,20 @@ export default function Sertanejo(){
     return(
         <div className="w-full min-h-dvh bg-gray-800">
             
-                <header className="bg-gradient-to-b from-gray-700 to-gray-800 h-200 flex justify-center flex-col ">
-                    <div className='max-w-5xl flex mx-auto w-full mt-3 pt-1 pl-3'>
-                        <Link to={'/'} className='w-full'>
+                <header className="bg-gradient-to-b from-gray-700 to-gray-800 h-200 flex flex-col ">
+                    <div className=' flex  w-full bg-slate-800 fixed'>
+                        <Link to={'/'} className='w-full max-w-5xl mx-auto p-2 ' >
                             <IoArrowBackOutline size={25} color='white'/><span className='text-white font-bold'>Home</span>
                         </Link>
                     </div>
-                    <div className='min-w-80 max-w-xl flex justify-center items-center mx-auto p-3 '>
+                    <div className='min-w-80 max-w-xl flex justify-center items-center mx-auto p-3 mt-16'>
                         <img src={logo} alt="logo" className='w-full max-h-64'/>
                     </div>    
                     <h1 className='text-slate-500 font-serif pb-10 text-center font-bold text-lg'>As 10 melhores </h1>
                 </header>
             
             
-            <section className='flex flex-col md:grid md:grid-cols-2 md:gap-2 max-w-4xl mx-auto '>
+            <section className='flex flex-col md:grid md:grid-cols-2 md:gap-2 max-w-5xl mx-auto '>
             {/*--------conteudo--------*/}
             {get.map((get)=>(
                 <div className='flex justify-center flex-col items-center px-1 bg-white mb-3 m-1 rounded-md' key={get._id}>

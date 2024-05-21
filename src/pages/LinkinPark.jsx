@@ -11,9 +11,13 @@ export default function LinkinPark(){
    
     useEffect(()=>{
         const getLinkinPark=async()=>{
-            const response=await api.get('/linkinpark')
-            console.log(response.data)
-            setGet(response.data)
+            try{
+                const response=await api.get('/linkinpark')
+                setGet(response.data)
+
+            }catch(error){
+                console.log(error)
+            }
         }
 
         getLinkinPark()
@@ -25,25 +29,25 @@ export default function LinkinPark(){
         <div className="w-full min-h-dvh bg-gray-800">
                 <header className="bg-gradient-to-b from-gray-700 to-gray-800 h-200 flex  flex-col ">
             
-                    <div className='w-full max-w-5xl flex mx-auto mt-3 pt-1 pl-3 text-white font-bold'>
+                    <div className='w-full  flex mx-auto bg-slate-800 fixed'>
                        
-                        <Link to={'/'}>
+                        <Link to={'/'} className='max-w-5xl w-full mx-auto p-2 text-white font-bold'>
                             <IoArrowBackOutline size={25} color='white'/><span>Home</span>
                         </Link>
                        
                        
                     </div>
-                    <div className='max-w-2xl flex justify-center items-center mx-auto'>
+                    <div className='max-w-2xl flex justify-center items-center mx-auto mt-9'>
                         <img src={image} alt="logo" className='w-full max-h-64'/>
                     </div>    
                     <h1 className='text-slate-500 font-serif pb-10 text-center font-bold text-lg'>As 10 melhores </h1>
                 </header>
            
             
-            <section className='flex flex-col md:grid md:grid-cols-2 md:gap-2 max-w-4xl mx-auto '>
+            <section className='flex flex-col md:grid md:grid-cols-2 md:gap-2 max-w-5xl mx-auto '>
             {/*--------conteudo--------*/}
             {get.map((get)=>(
-                <div className='flex justify-center flex-col items-center px-1 bg-white mb-3 m-1 rounded-md' key={get._id}>
+                <div className='flex justify-center flex-col items-center px-1 bg-white mb-3 m-1 rounded-sm' key={get._id}>
                     <div className='w-full p-2'>
                         <iframe 
                         width="100%" 
